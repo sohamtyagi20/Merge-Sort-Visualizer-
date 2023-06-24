@@ -1,7 +1,8 @@
 import java.util.Arrays;
 import g4p_controls.*;
 
-int array[] = {2, 12, 11, 5, 6, 7}; // the array that will be sorted
+int array[] = {2, 12, 11, 5, 6, 7, 54, 21 , 32}; // the array that will be sorted
+String org = Arrays.toString(array);
 
 int textSize = 20; // sets the text size
 int padding = 20; 
@@ -26,6 +27,7 @@ int elseChecker = 0;
 boolean pause = true; // for GUI
 
 void setup() {
+  println(org);
   G4P.messagesEnabled(false);
   createGUI();
   frameRate(frame);
