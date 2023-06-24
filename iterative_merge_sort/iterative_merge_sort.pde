@@ -26,7 +26,6 @@ int elseChecker = 0;
 boolean pause = true; // for GUI
 
 void setup() {
-  println(int(array.length - ((array.length + 2) / 3)));
   G4P.messagesEnabled(false);
   createGUI();
   frameRate(frame);
