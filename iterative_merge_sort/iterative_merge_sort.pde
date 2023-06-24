@@ -21,7 +21,7 @@ int stepIter = 0;
 int steps = 0;
 
 void setup() {
-  frameRate(1);
+  frameRate(0.8);
   //noLoop();
   size(1000, 500);
   textSize(textSize);
@@ -60,13 +60,21 @@ void draw() {
     arrowY = y + 20;
     if ( i > 0 ) {
       preMerge[i][j] = textMergeSteps[i-1];
+      //println(preMerge[i][j], i, j);
+      //println(preMerge[1][0]);
+      println(i, j);
+      int b = 0;
+      int e = 0;
       //while() {
-      for ( int a = 0; a < i; a++) {
-        for ( int b = 0; b < j; b++) {
-        fill(0);
-        textAlign(LEFT, CENTER);
-        text(preMerge[a][b], x + textSize / 2, (startY + (i-1)*(textSize + padding)) + textSize / 2 );
-        }
+      for ( int a = 1; a < i+1; a++) {
+        b = a -1;
+        //for ( int b = 0; b < j+1; b++) {
+          println(preMerge[a][b], a, b);
+          fill(0);
+          textAlign(LEFT, CENTER);
+          text(preMerge[a][b], x + textSize / 2, (startY + (e)*(textSize + padding)) + textSize / 2 );
+        //}
+        e ++;
       }
       j++;
       //}
