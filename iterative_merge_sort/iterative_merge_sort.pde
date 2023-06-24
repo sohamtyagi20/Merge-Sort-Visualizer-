@@ -25,7 +25,6 @@ boolean pause = true; // for GUI
 
 void setup() {
   G4P.messagesEnabled(false);
-  textSize(textSize);
   createGUI();
   frameRate(frame);
   noLoop();
@@ -40,7 +39,10 @@ void setup() {
 void draw() {
   background(255);    
   fill(0);
-  text("Merge Sort Visualizer", startX, height/6);
+  textSize(50);
+  textAlign(CENTER,CENTER);
+  text("Merge Sort Visualizer", width/2, height/9);
+  textSize(textSize);
   if (stage == 0) {
     startSim();
   } else {
