@@ -1,2 +1,2 @@
-# Merge Sort Visulizer 
+# Merge Sort Visualizer 
  
