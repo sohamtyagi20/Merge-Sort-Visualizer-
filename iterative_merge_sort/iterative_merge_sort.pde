@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import g4p_controls.*;
 
-int array[] = {12, 11, 13, 5, 6, 7, 8, 7, 9 }; // the array that will be sorted
+int array[] = {12, 11, 13, 5, 6, 7, 8}; // the array that will be sorted
 
 int textSize = 20; // sets the text size
 int padding = 20; 
@@ -18,18 +18,13 @@ final int[] orgArray = Arrays.copyOf(array, array.length); // makes a copy of th
 int[][] mergeSteps = new int[array.length][array.length]; // to get a copy of every step made in merge sort
 String[] textMergeSteps = new String[array.length]; // to print it to window
 String[][] preMerge = new String[array.length][array.length]; // to show the steps on screen
-String[] brack; // used to show the merging
+String[] brack = new String[array.length-(array.length-3)]; // used to show the merging
 int stage = 0;
 int stepIter = 0;
 int elseChecker = 0;
 boolean pause = true; // for GUI
 
 void setup() {
-  if (array.length % 2 != 0) {
-    brack= new String[array.length-(array.length-3)+1];
-  } else {
-    brack= new String[array.length-(array.length-3)];
-  }
   G4P.messagesEnabled(false);
   createGUI();
   frameRate(frame);
@@ -56,7 +51,6 @@ void draw() {
     if ( i == array.length - 2) { // to stop werid bug from happening
       noLoop();
     } 
-    //textMergeSteps[i] = Arrays.toString(mergeSteps[i]);
     if ( i < brack.length) {
       int x = startX;
       int y = startY + i*(textSize + padding);
@@ -79,15 +73,11 @@ void draw() {
       textAlign(LEFT, CENTER);
       text(brack[i], x + textSize / 2, y + textSize / 2);
     } else {
-      //println(brack[i-1], mergeSteps[i]);
-      if (elseChecker ==0) {
+      if (elseChecker == 0) {
         textMergeSteps[i-1] = brack[i-1];
         elseChecker++;
       }
-      println(textMergeSteps[i] + " first");
-      println(textMergeSteps[i-1] + " if");
       textMergeSteps[i] = Arrays.toString(mergeSteps[i]);
-      println(textMergeSteps[i] + "else");
 
 
       int x = startX;
@@ -95,14 +85,7 @@ void draw() {
       arrowX = startX - 2*(textSize+padding);
       arrowY = y + 20;
       if ( i > 0 ) { // checks if i is bigger than 0, if true then it make a copy of the previous merge step
-        //int t = 0;
-        //if ( t == 0){
-        //preMerge[i][j] = textMergeSteps[i];
-        //  t++;
-        //} else {
         preMerge[i][j] = textMergeSteps[i-1];
-        //}
-        println("Work");
         int b = 0;
         int e = 0;
         for ( int a = 1; a < i+1; a++) {
@@ -123,29 +106,6 @@ void draw() {
         text("Final Array", arrowX - (arrowSize+padding)-10, arrowY -10 );
       }
     }
-
-    //textMergeSteps[i] = textMergeSteps[i].replace("[", "").replace("]", "");
-
-    //int x = startX;
-    //int y = startY + i*(textSize + padding);
-    //arrowX = startX - 2*(textSize+padding);
-    //arrowY = y + 20;
-    //if ( i > 0 ) { // checks if i is bigger than 0, if true then it make a copy of the previous merge step
-    //  preMerge[i][j] = textMergeSteps[i-1];
-    //  int b = 0;
-    //  int e = 0;
-    //  for ( int a = 1; a < i+1; a++) {
-    //    b = a -1;
-    //    fill(0);
-    //    textAlign(LEFT, CENTER);
-    //    text(preMerge[a][b], x + textSize / 2, (startY + e*(textSize + padding)) + textSize / 2 );
-    //    e ++;
-    //  }
-    //  j++;
-    //}
-    //fill(0);
-    //textAlign(LEFT, CENTER);
-    //text(textMergeSteps[i], x + textSize / 2, y + textSize / 2);
     i++;
   }
   stage++;

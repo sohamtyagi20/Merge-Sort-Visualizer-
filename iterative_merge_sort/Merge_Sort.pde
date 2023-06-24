@@ -26,11 +26,9 @@ class MergeSort {
 
           mergeSteps[stepIter][i] = array[i];
         }
-        //printArray(array,n);
         stepIter++;
       }
       f++;
-      println(res);
     }
   }
 
@@ -77,17 +75,8 @@ class MergeSort {
       k++;
     }
     String tempGroups = "";
-    //printArray(L);
-    //printArray(R);
-    //tempGroups += "x";
-    printArray(L);
-    print(" L");
-    printArray(R);
     tempGroups += "["+printArray(L, L.length)+"]";
-    //tempGroups += "x";
     tempGroups += "["+printArray(R, R.length)+"]";
-    //tempGroups += "y";
-    //println(tempGroups);
     return tempGroups;
   }
 }
