@@ -22,9 +22,11 @@ class MergeSort {
 
         res += merge(array, left_start, mid, right_end);
         brack[f] = res;
-        for ( int i  = 0; i < this.array.length; i++) { // Stores the steps of the merging proccess to mergSteps
-
-          mergeSteps[stepIter][i] = array[i];
+        for ( int a  = 0; a < this.array.length; a++) { // Stores the steps of the merging proccess to mergSteps
+          if ( stepIter >= 10) {
+            stepIter--;
+          }
+          mergeSteps[stepIter][a] = array[a];
         }
         stepIter++;
       }
@@ -37,7 +39,7 @@ class MergeSort {
     // Calculate the sizes of the subarrays
     int n1 = m - l + 1;
     int n2 = r - m;
-    
+
 
     int L[] = new int[n1];
     int R[] = new int[n2];
@@ -74,9 +76,13 @@ class MergeSort {
       j++;
       k++;
     }
-    String tempGroups = "";
+    // This is used to show the brackets during the merging process 
+    String tempGroups = ""; 
     tempGroups += "["+printArray(L, L.length)+"]";
     tempGroups += "["+printArray(R, R.length)+"]";
+    if (tempGroups.matches(".*\\[\\].*")) {
+      tempGroups = tempGroups.replaceAll("\\[\\]", "");
+    }
     return tempGroups;
   }
 }

@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import g4p_controls.*;
 
-int array[] = {12, 11, 13, 5, 6, 7, 8}; // the array that will be sorted
+int array[] = {2, 12, 11, 13, 5, 6, 7, 8, 9, 10, 3}; // the array that will be sorted
 
 int textSize = 20; // sets the text size
 int padding = 20; 
@@ -18,7 +18,7 @@ final int[] orgArray = Arrays.copyOf(array, array.length); // makes a copy of th
 int[][] mergeSteps = new int[array.length][array.length]; // to get a copy of every step made in merge sort
 String[] textMergeSteps = new String[array.length]; // to print it to window
 String[][] preMerge = new String[array.length][array.length]; // to show the steps on screen
-String[] brack = new String[array.length-(array.length-3)]; // used to show the merging
+String[] brack; // used to show the merging
 int stage = 0;
 int stepIter = 0;
 int elseChecker = 0;
@@ -30,6 +30,12 @@ void setup() {
   frameRate(frame);
   noLoop();
   size(800, 600);
+  if ( array.length % 2 == 0){
+    brack = new String[4];
+  }
+  else {
+  brack  = new String[array.length-(array.length-3)+1];
+  }
 
   startX = (width - (array.length * (textSize + padding) - padding)) / 2 ; //formating 
   startY = height / 2 - textSize / 2 - padding-(height/6); 
