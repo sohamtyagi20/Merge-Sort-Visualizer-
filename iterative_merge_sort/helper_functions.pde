@@ -8,10 +8,9 @@ void startSim() { // this starts the simulation
     textAlign(CENTER, CENTER);
     if ( i == array.length-1) {
       text(orgArray[i], x + textSize / 2, y + textSize / 2);
+    } else {
+      text(orgArray[i] +", ", x + textSize / 2, y + textSize / 2);
     }
-    else {
-    text(orgArray[i] +", ", x + textSize / 2, y + textSize / 2);
-  }
   }
   arrowX = startX - 2*(textSize+padding);
   arrowY = startY - (textSize + padding) + 20;
@@ -19,11 +18,23 @@ void startSim() { // this starts the simulation
   triangle(arrowX + arrowSize / 2+30, arrowY-5, arrowX + arrowSize / 4+30, arrowY - arrowSize / 4-5, arrowX + arrowSize / 4+30, arrowY + arrowSize / 4-5);
   line(arrowX - arrowSize / 2 +30, arrowY-5, arrowX + arrowSize / 2 +30, arrowY-5);
 }
-void printArray(int A[], int size) { // change the printArray function so it is easier to debug
+
+
+
+String printArray(int A[], int size) {// change the printArray function so it is easier to debug
+  String output = "";
   for (int i = 0; i < size; i++) {
-    print(A[i] + " ");
+    if (A.length == 1) {
+    output += (A[i]);
+    }
+    else if ( i == size-1){
+      output += (A[i]);
+    }
+    else {
+    output += (A[i] + ", ");
+    }
   }
-  println();
+  return output;
 }
 
 void printArray(int A[][], int size) { // same thing here but with 2D array

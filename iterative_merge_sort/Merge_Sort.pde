@@ -10,25 +10,36 @@ class MergeSort {
   }
 
   void mergeSort(int array[], int n) { // Iterative Merge Sort
+    int f = 0;
     for (int curr_size = 1; curr_size <= n - 1; curr_size = 2 * curr_size) { // Outer loop controls the size of the subarrays
-      for (int left_start = 0; left_start < n - 1; left_start += 2 * curr_size) { // Inner loop iterates over the subarrays
+      String res = "";
+
+      for (int left_start = 0; left_start < n - 1; left_start += 2 * curr_size) {
+        // Inner loop iterates over the subarrays
+
         int mid = min(left_start + curr_size - 1, n - 1); // Calculate the mid and right_end points for merging
         int right_end = min(left_start + 2 * curr_size - 1, n - 1);
-        merge(array, left_start, mid, right_end);
-        //printArray(array, n);
+
+        res += merge(array, left_start, mid, right_end);
+        brack[f] = res;
         for ( int i  = 0; i < this.array.length; i++) { // Stores the steps of the merging proccess to mergSteps
+
           mergeSteps[stepIter][i] = array[i];
         }
+        //printArray(array,n);
         stepIter++;
       }
+      f++;
+      println(res);
     }
   }
 
-  void merge(int array[], int l, int m, int r) {
+  String merge(int array[], int l, int m, int r) {
     int i, j, k;
     // Calculate the sizes of the subarrays
     int n1 = m - l + 1;
     int n2 = r - m;
+    
 
     int L[] = new int[n1];
     int R[] = new int[n2];
@@ -65,5 +76,18 @@ class MergeSort {
       j++;
       k++;
     }
+    String tempGroups = "";
+    //printArray(L);
+    //printArray(R);
+    //tempGroups += "x";
+    printArray(L);
+    print(" L");
+    printArray(R);
+    tempGroups += "["+printArray(L, L.length)+"]";
+    //tempGroups += "x";
+    tempGroups += "["+printArray(R, R.length)+"]";
+    //tempGroups += "y";
+    //println(tempGroups);
+    return tempGroups;
   }
 }
