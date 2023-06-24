@@ -11,8 +11,8 @@ void startSim() { // this starts the simulation
   arrowX = startX - 2*(textSize+padding);
   arrowY = startY - (textSize + padding) + 20;
   text("Orginal Array", arrowX - (arrowSize+padding), arrowY - 10);
-  triangle(arrowX + arrowSize / 2, arrowY, arrowX + arrowSize / 4, arrowY - arrowSize / 4, arrowX + arrowSize / 4, arrowY + arrowSize / 4);
-  line(arrowX - arrowSize / 2, arrowY, arrowX + arrowSize / 2, arrowY);
+  triangle(arrowX + arrowSize / 2+30, arrowY-5, arrowX + arrowSize / 4+30, arrowY - arrowSize / 4-5, arrowX + arrowSize / 4+30, arrowY + arrowSize / 4-5);
+  line(arrowX - arrowSize / 2 +30, arrowY-5, arrowX + arrowSize / 2 +30, arrowY-5);
 }
 void printArray(int A[], int size) { // change the printArray function so it is easier to debug
   for (int i = 0; i < size; i++) {

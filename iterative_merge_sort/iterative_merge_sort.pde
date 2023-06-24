@@ -1,14 +1,14 @@
 import java.util.Arrays;
 import g4p_controls.*;
 
-int array[] = {12, 11, 13, 5, 6, 7, 8, 4, 5, 3, 2, 9, 5, 12}; // the array that will be sorted
+int array[] = {12, 11, 13, 5, 6, 7, 8}; // the array that will be sorted
 
 int textSize = 20; // sets the text size
 int padding = 20; 
 int startX, startY;  
 float arrowX; // x and y value for arrow
 float arrowY;
-float arrowSize = 80;
+float arrowSize = 60;
 int i = 0; // this will be used as an intrement in draw
 int j = 0;
 float frame = 1;
