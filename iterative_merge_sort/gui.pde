@@ -33,9 +33,13 @@ public void PauseSim(GButton source, GEvent event) { //_CODE_:pauseButton:450187
   }
 } //_CODE_:pauseButton:450187:
 
-public void textfield1_change1(GTextField source, GEvent event) { //_CODE_:textfield1:716776:
-  
-} //_CODE_:textfield1:716776:
+public void button1_click1(GButton source, GEvent event) { //_CODE_:speedDown:794286:
+  frame =- 0.2;
+} //_CODE_:speedDown:794286:
+
+public void button2_click1(GButton source, GEvent event) { //_CODE_:speedUp:712485:
+  frame =+ 0.2;
+} //_CODE_:speedUp:712485:
 
 
 
@@ -56,10 +60,12 @@ public void createGUI(){
   pauseButton = new GButton(window1, 81, 92, 80, 30);
   pauseButton.setText("Pause");
   pauseButton.addEventHandler(this, "PauseSim");
-  textfield1 = new GTextField(window1, 46, 161, 120, 30, G4P.SCROLLBARS_NONE);
-  textfield1.setText("Enter Array Here: ");
-  textfield1.setOpaque(true);
-  textfield1.addEventHandler(this, "textfield1_change1");
+  speedDown = new GButton(window1, 20, 136, 80, 30);
+  speedDown.setText("Speed Down");
+  speedDown.addEventHandler(this, "button1_click1");
+  speedUp = new GButton(window1, 124, 136, 80, 30);
+  speedUp.setText("Speed Up");
+  speedUp.addEventHandler(this, "button2_click1");
   window1.loop();
 }
 
@@ -68,4 +74,5 @@ public void createGUI(){
 GWindow window1;
 GButton startButton; 
 GButton pauseButton; 
-GTextField textfield1; 
+GButton speedDown; 
+GButton speedUp; 

@@ -1,8 +1,9 @@
 import java.util.Arrays;
 import g4p_controls.*;
 
-int array[] = {12, 11, 13, 5, 6, 7, 8, 4, 5, 3, 2};
-int textSize = 30; // sets the text size
+int array[] = {12, 11, 13, 5, 6, 7, 8, 4, 5, 3, 2, 9, 5, 12}; // the array that will be sorted
+
+int textSize = 20; // sets the text size
 int padding = 20; 
 int startX, startY;  
 float arrowX; // x and y value for arrow
@@ -10,6 +11,7 @@ float arrowY;
 float arrowSize = 80;
 int i = 0; // this will be used as an intrement in draw
 int j = 0;
+float frame = 1;
 
 final int[] orgArray = Arrays.copyOf(array, array.length); // makes a copy of the orginal code
 int[][] mergeSteps = new int[array.length][array.length]; // to get a copy of every step made in merge sort
@@ -22,17 +24,17 @@ boolean pause = true; // for GUI
 
 void setup() {
   G4P.messagesEnabled(false);
+  textSize(textSize);
   createGUI();
-  frameRate(0.8);
+  frameRate(frame);
   noLoop();
   size(1000, 800);
-  textSize(textSize);
-  startX = (width - (array.length * (textSize + padding) - padding)) / 2;
+
+  startX = (width - (array.length * (textSize + padding) - padding)) / 2 ; //formating 
   startY = height / 2 - textSize / 2 - padding - 300;
-  
+
   MergeSort sort = new MergeSort(array);
   sort.callMergeSort();
-  
 }
 void draw() {
   background(255);
@@ -67,9 +69,9 @@ void draw() {
     textAlign(LEFT, CENTER);
     text(textMergeSteps[i], x + textSize / 2, y + textSize / 2);
     if (i == array.length -2) { // for the arrow, only runs when the sorted array is printed to the screen
-      triangle(arrowX + arrowSize / 2, arrowY, arrowX + arrowSize / 4, arrowY - arrowSize / 4, arrowX + arrowSize / 4, arrowY + arrowSize / 4);
-      line(arrowX - arrowSize / 2, arrowY, arrowX + arrowSize / 2, arrowY);
-      text("Final Array", arrowX - 2*(arrowSize+padding), arrowY -10 );
+      triangle(arrowX + arrowSize / 2 + 45, arrowY, arrowX + arrowSize / 4 + 45, arrowY - arrowSize / 4, arrowX + arrowSize / 4 + 45, arrowY + arrowSize / 4);
+      line(arrowX - arrowSize / 2+45, arrowY, arrowX + arrowSize / 2+45, arrowY);
+      text("Final Array", arrowX - (arrowSize+padding), arrowY -10 );
     }
     i++;
     steps++;
