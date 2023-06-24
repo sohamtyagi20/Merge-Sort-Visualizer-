@@ -29,16 +29,18 @@ void setup() {
   createGUI();
   frameRate(frame);
   noLoop();
-  size(1000, 800);
+  size(800, 600);
 
   startX = (width - (array.length * (textSize + padding) - padding)) / 2 ; //formating 
-  startY = height / 2 - textSize / 2 - padding - 300;
+  startY = height / 2 - textSize / 2 - padding-(height/6); 
 
   MergeSort sort = new MergeSort(array);
   sort.callMergeSort();
 }
 void draw() {
-  background(255);
+  background(255);    
+  fill(0);
+  text("Merge Sort Visualizer", startX, height/6);
   if (stage == 0) {
     startSim();
   } else {
