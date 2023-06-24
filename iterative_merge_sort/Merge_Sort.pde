@@ -21,7 +21,7 @@ class MergeSort {
         int right_end = min(left_start + 2 * curr_size - 1, n - 1);
 
         res += merge(array, left_start, mid, right_end);
-        brack[f] = res;
+        tempArray[f] = res;
         for ( int a  = 0; a < this.array.length; a++) { // Stores the steps of the merging proccess to mergSteps
           if ( stepIter >= 10) {
             stepIter--;

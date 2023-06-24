@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import g4p_controls.*;
 
-int array[] = {2, 12, 11, 13, 5, 6, 7, 8, 9, 10, 3}; // the array that will be sorted
+int array[] = {2, 12, 11, 5, 6, 7}; // the array that will be sorted
 
 int textSize = 20; // sets the text size
 int padding = 20; 
@@ -18,30 +18,46 @@ final int[] orgArray = Arrays.copyOf(array, array.length); // makes a copy of th
 int[][] mergeSteps = new int[array.length][array.length]; // to get a copy of every step made in merge sort
 String[] textMergeSteps = new String[array.length]; // to print it to window
 String[][] preMerge = new String[array.length][array.length]; // to show the steps on screen
-String[] brack; // used to show the merging
+String[] tempArray = new String[array.length]; // used to show the merging
+String[] brack;
 int stage = 0;
 int stepIter = 0;
 int elseChecker = 0;
 boolean pause = true; // for GUI
 
 void setup() {
+  println(int(array.length - ((array.length + 2) / 3)));
   G4P.messagesEnabled(false);
   createGUI();
   frameRate(frame);
   noLoop();
   size(800, 600);
-  if ( array.length % 2 == 0){
-    brack = new String[4];
-  }
-  else {
-  brack  = new String[array.length-(array.length-3)+1];
-  }
+  //if ( array.length % 2 == 0){
+  //  brack = new String[3];
+  //}
+  //else {
+  //brack  = new String[2];
+  //}
 
   startX = (width - (array.length * (textSize + padding) - padding)) / 2 ; //formating 
   startY = height / 2 - textSize / 2 - padding-(height/6); 
 
   MergeSort sort = new MergeSort(array);
   sort.callMergeSort();
+  String [] stringArray = new String[tempArray.length];
+  int count = 0;
+
+  for (String element : tempArray) {
+    if (element != null) {
+      stringArray[count] = element;
+      count++;
+    }
+  }
+
+  // Create a new array with the correct size, without null elements
+   brack = new String[count];
+  System.arraycopy(stringArray, 0, brack, 0, count);
+
 }
 void draw() {
   background(255);    
@@ -56,7 +72,7 @@ void draw() {
     startSim();
     if ( i == array.length - 2) { // to stop werid bug from happening
       noLoop();
-    } 
+    }
     if ( i < brack.length) {
       int x = startX;
       int y = startY + i*(textSize + padding);
@@ -84,6 +100,7 @@ void draw() {
         elseChecker++;
       }
       textMergeSteps[i] = Arrays.toString(mergeSteps[i]);
+
 
 
       int x = startX;
