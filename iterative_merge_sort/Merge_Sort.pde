@@ -9,16 +9,15 @@ class MergeSort {
     mergeSort(array, n);
   }
 
-  void mergeSort(int array[], int n) {
-    for (int curr_size = 1; curr_size <= n - 1; curr_size = 2 * curr_size) {
-      for (int left_start = 0; left_start < n - 1; left_start += 2 * curr_size) {
-        int mid = min(left_start + curr_size - 1, n - 1);
+  void mergeSort(int array[], int n) { // Iterative Merge Sort
+    for (int curr_size = 1; curr_size <= n - 1; curr_size = 2 * curr_size) { // Outer loop controls the size of the subarrays
+      for (int left_start = 0; left_start < n - 1; left_start += 2 * curr_size) { // Inner loop iterates over the subarrays
+        int mid = min(left_start + curr_size - 1, n - 1); // Calculate the mid and right_end points for merging
         int right_end = min(left_start + 2 * curr_size - 1, n - 1);
         merge(array, left_start, mid, right_end);
         //printArray(array, n);
-        for ( int i  = 0; i < this.array.length; i++) {
+        for ( int i  = 0; i < this.array.length; i++) { // Stores the steps of the merging proccess to mergSteps
           mergeSteps[stepIter][i] = array[i];
-          //printArray(mergeSteps, array.length);
         }
         stepIter++;
       }
@@ -27,6 +26,7 @@ class MergeSort {
 
   void merge(int array[], int l, int m, int r) {
     int i, j, k;
+    // Calculate the sizes of the subarrays
     int n1 = m - l + 1;
     int n2 = r - m;
 
@@ -65,10 +65,5 @@ class MergeSort {
       j++;
       k++;
     }
-  }
-  void mergingStep(int A[], int B[], int size) {
-    //for (int i = 0; i < size; i++) {
-    //  A[i] = B;
-    //}
   }
 }
