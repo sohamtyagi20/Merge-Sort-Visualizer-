@@ -17,6 +17,7 @@ final int[] orgArray = Arrays.copyOf(array, array.length); // makes a copy of th
 int[][] mergeSteps = new int[array.length][array.length]; // to get a copy of every step made in merge sort
 String[] textMergeSteps = new String[array.length]; // to print it to window
 String[][] preMerge = new String[array.length][array.length]; // to show the steps on screen
+String[] orgArrayString = new String[1];
 int stage = 0;
 int stepIter = 0;
 int steps = 0;

@@ -6,7 +6,12 @@ void startSim() { // this starts the simulation
     arrowY = y + 20;
     fill(0);
     textAlign(CENTER, CENTER);
+    if ( i == array.length-1) {
+      text(orgArray[i], x + textSize / 2, y + textSize / 2);
+    }
+    else {
     text(orgArray[i] +", ", x + textSize / 2, y + textSize / 2);
+  }
   }
   arrowX = startX - 2*(textSize+padding);
   arrowY = startY - (textSize + padding) + 20;
